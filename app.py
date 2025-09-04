@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import urllib.parse
+import os
 
 app = Flask(__name__)
 
@@ -12,10 +13,10 @@ quest = {
     "prize_pool": "0.04 $GOVNO"
 }
 
-# Ссылка шаблон (замени на реальный Govno Payment Bot URL)
+# Шаблон ссылки на оплату Govno Payment Bot
 GOVNO_BASE_URL = "https://govnopaymentbot.com/pay"
 
-# Ссылка обратного вызова после оплаты (можно заменить на рабочий webhook)
+# Callback URL после оплаты (замени на рабочий webhook, если будет)
 CALLBACK_URL = "https://yourserver.com/webhook"
 
 @app.route("/")
@@ -30,7 +31,6 @@ def index():
     return render_template("index.html", quest=quest, pay_link=pay_link)
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))  # Render подставит свой порт
+    # Берём порт из переменной окружения Render или 5000 для локального теста
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
-
