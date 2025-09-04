@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ quest.name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); width: 300px; text-align: center; }
+        .card h2 { margin-bottom: 10px; }
+        .card p { margin: 5px 0; }
+        .play-btn { margin-top: 15px; padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .play-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>{{ quest.name }}</h2>
+        <p><strong>Сложность:</strong> {{ quest.difficulty }}</p>
+        <p><strong>Цена входа:</strong> {{ quest.price }}</p>
+        <p><strong>Количество участников:</strong> {{ quest.participants }}</p>
+        <p><strong>Общий призовой фонд:</strong> {{ quest.prize_pool }}</p>
+        <a class="play-btn" href="{{ pay_link }}" target="_blank">Играть</a>
+    </div>
+</body>
+</html>
